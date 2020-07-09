@@ -8,9 +8,19 @@ def linear_search(arr, target):
 
 # Write an iterative implementation of Binary Search
 def binary_search(arr, target):
-
-    sorted = arr.sort()
-    print(sorted)
     # Your code here
+    start = 0
+    end = (len(arr) - 1)
 
-    return -1  # not found
+    while start <= end:
+        mid = (start + end) // 2
+        check = arr[mid]
+
+        if check == target:
+            return arr.index(check)
+        if check > target:
+            end = mid - 1
+        elif check < target:
+            start = mid + 1
+
+    return -1
